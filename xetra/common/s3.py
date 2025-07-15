@@ -46,7 +46,7 @@ class S3BucketConnector():
       self.logger.info(f'S3BucketConnector initialized for bucket: {bucket}')
      
 
-
+   @profile
    def list_files_in_prefix(self, prefix:str):
        """
        listing all files with a prefix on the S3 bucket
@@ -60,6 +60,7 @@ class S3BucketConnector():
        files = [obj.key for obj in self._bucket.objects.filter(Prefix=prefix)]
        return files
    
+   @profile
    def read_csv_to_df(self, key:str, encoding:str = 'utf-8', sep:str = ','):
        """
        reading a csv file from the s3 bucket and returning a dataframe
@@ -79,6 +80,7 @@ class S3BucketConnector():
        data_frame = pd.read_csv(data, sep=sep)
        return data_frame
    
+   @profile
    def write_df_to_s3(self, data_frame: pd.DataFrame, key:str, file_format: str):
        """
           writing a Pandas DataFrame to S3

@@ -17,6 +17,8 @@ moto = "*"
 coverage = "*"
 
 [dev-packages]
+memory-profiler = "*"
+matplotlib = "*"
 
 [requires]
 python_version = "3.9"
